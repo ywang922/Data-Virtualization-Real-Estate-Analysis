@@ -1,4 +1,4 @@
-# Unit 6 - Pythonic Monopoly
+# Toronto Real Estate Investment Analysis 
 
 ![Toronto at night](Images/toronto.jpg)
 
@@ -138,17 +138,3 @@ Sample Dashboard:
   ![dashboard-demo.gif](Images/dashboard-demo.gif)
 
 ---
-
-### Submission
-
-* Upload two separate notebooks to Github - One for the analysis and one for the dashboard.
-
-* Write a README file to explain how to run and use your dashboard.
-
-* Submit the Github URL repository to Bootcampspot.
-
-* **Important Note:** You should not submit your Mapbox access token to Github!
-
----
-
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
