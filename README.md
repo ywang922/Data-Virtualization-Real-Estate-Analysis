@@ -1,104 +1,154 @@
-# Toronto Rental Properties Analysis
-![Toronto Park Reading](Images/san-francisco-park-reading.jpg)
-*[Toronto Park Reading by Juan Salamanca](https://www.pexels.com/photo/park-san-francisco-reading-61109/) | [Free License](https://www.pexels.com/photo-license/)*
+# Unit 6 - Pythonic Monopoly
+
+![Toronto at night](Images/toronto.jpg)
+
+*[Photo by James Wheeler](https://www.pexels.com/@souvenirpixels?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) | [Free License](https://www.pexels.com/photo-license/)*
 
 ## Background
 
-A real estate team wants to trial initial offering with investment opportunities for the Toronto market. If the new service is popular, then they can start to expand to other markets.
+Harold's company has just started a new Real Estate Investment division to provide customers with a broader range of portfolio options. Harold was tasked with building a prototype dashboard, and he needs your help. The real estate team wants to trial this initial offering with investment opportunities for the Toronto market. If the new service is popular, then they can start to expand to other markets.
 
-I have built a dashboard is to provide charts, maps, and interactive visualizations that help customers explore the data and determine if they want to invest in rental properties in Toronto.
+This dashboard's goal is to provide charts, maps, and interactive visualizations that help customers explore the data and determine if they want to invest in rental properties in Toronto.
 
+In this homework assignment, you will help Harold accomplish the following tasks:
+
+1. [Complete a notebook of rental analysis](#Rental-Analysis)
+
+2. [Create a dashboard of interactive visualizations to explore the market data](#Dashboard)
+
+The data provided for this homework was retrieved from the following websites:
+
+* [Toronto Open Data](https://open.toronto.ca/)
+
+* [Census Profile, 2016 Census - Toronto Metropolitan Area, Ontario and Canada](https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/details/page.cfm?Lang=E&Geo1=CMACA&Code1=535&Geo2=PR&Code2=01&SearchText=toronto&SearchType=Begins&SearchPR=01&B1=All&TABID=1&type=0)
+
+
+**Note:** If you encounter technical difficulties using PyViz, refer to the troubleshooting section of the [PyViz Installation Guide](PyVizInstallationGuide.md).
+
+---
+
+## Files
+
+* [toronto_neighbourhoods_census_data.csv](Starter_Code/Data/toronto_neighbourhoods_census_data.csv)
+
+* [toronto_neighbourhoods_coordinates.csv](Starter_Code/Data/toronto_neighbourhoods_coordinates.csv)
+
+* [Rental Analysis Starter Jupyter Notebook](Starter_Code/rental_analysis.ipynb)
+
+* [Dashboard Starter Jupyter Notebook](Starter_Code/dashboard.ipynb)
+
+## Instructions
 
 ### Rental Analysis
 
-The first step, built the dashboard to work out all of the calculations and visualizations in an rental analysis.
+The first step to building the dashboard is to work out all of the calculations and visualizations in an analysis notebook. Once the code is running properly, it can be copied over to a dashboard code and used with Panel to create the final layout. Use the `rental_analysis.ipynb` to complete the following:
 
-#### Housing Units Per Year
+#### Dwelling Types Per Year
 
-In rental_analysis.ipynb, I have calculated the number of housing units per year and visualize the results as a bar chart using the Pandas plot function.
-Default Bar Chart
+In this section, you will calculate the number of dwelling types per year and visualize the results as a bar chart using the Pandas plot function.
 
-  ![unscaled-bar.png](Images/unscaled-bar.png)
-  
-Bar Chart with y-axis limits adjusted
+**Note:** By default, the colour of the bar charts is blue. However, it is hard to see the difference between the yearly data.
 
-  ![scaled-bar.png](Images/scaled-bar.png)
+As an optional challenge, you can manually use the `color` parameter of the `plot()` function to change the colour of each bar chart.
 
-#### Average Gross Rent in Toronto Per Year
+| Default Bar Charts                                  | Colored Bar Charts                                   |
+------------------------------------------------------|------------------------------------------------------|
+|![default_bar_charts](Images/default_bar_charts.png) | ![colored_bar_charts](Images/colored_bar_charts.png) |
 
-I visualized the average gross rent per year to better understand the trends for rental income over time. I also visualize the average (mean) gross rent per year and visualized it as a line chart.
+#### Average Monthly Shelter Costs in Toronto Per Year
 
-1. Calculated the mean `gross` for each year.
-2. Visualized the mean gross rent per year as a line chart.
+In this section, you want to visualize the average monthly shelter costs per year to understand rental income trends over time better. You will visualize the average (mean) shelter cost for owned and rented dwellings per year and visualize it as line charts.
 
-  ![gross-rent.png](Images/gross-rent.png)
+As an optional challenge, you can plot each line chart in a different colour.
 
- 
+1. Calculate the average monthly shelter costs for owned and rented dwellings for each year.
 
-#### Average Sales Price Per Year
+2. Visualize the monthly shelter costs per year as line charts.
 
-I determined the average sales price per year to better understand the sales price of the rental property over time. For example, a customer will want to know if they should expect an increase or decrease in the property value over time so they can determine how long to hold the rental property. I visualized the average (mean) `sales_price_sqr_foot` and visualized it as a bar chart.
+    ![gross-rent.png](Images/gross-rent.png)
 
-1. Calculated the mean `gross` for each year.
-2. Visualized the mean gross rent per year as a line chart.
+#### Average House Value per Year
+
+In this section, you want to determine the average house value per year. An investor may want to better understand the sales price of the rental property over time. For example, a customer will want to know if they should expect an increase or decrease in the property value over time so they can determine how long to hold the rental property. You will visualize the `average_house_value` per year as a bar chart.
+
+1. Calculate the mean `average_house_value` for each year.
+
+2. Visualize the `average_house_value` per year as a line chart.
 
   ![average-sales.png](Images/average-sales.png)
 
-#### Average Prices By Neighborhood
+#### Average Prices By Neighbourhood
 
-I compared the average prices by neighborhood.
+In this section, you want to compare the house value by neighbourhood.
 
-1. Grouped the data by year and by neighborhood and calculate the average (mean) `sales_price_sqr_foot`.
-2. Visualized the mean `sales_price_sqr_foot` per year with the neighborhood as a dropdown selector. Used hvplot to obtain the interactive dropdown selector for the neighborhood.
- 
- ![avg-price-neighborhood.png](Images/avg-price-neighborhood.png)
+1. Create a new DataFrame with the mean house values by neighbourhood per year.
 
+2. Visualize the mean `average_house_value` per year with the neighbourhood as a dropdown selector.
 
-#### Top 10 Most Expensive Neighborhoods
+**Hint:** Use `hvplot` to obtain the interactive dropdown selector for the neighbourhood.
 
-I figured out which neighborhoods are the most expensive. by calculating the mean sale price for each neighborhood and then sort the values to obtain the top 10 most expensive neighborhoods on average. Plotted the results as a bar chart.
+  ![avg-price-neighbourhood.png](Images/avg-price-neighbourhood.png)
 
-![top-10-expensive-neighborhoods.png](Images/top-10-expensive-neighborhoods.png)
+#### Number of Dwelling Types per Year
 
-#### Parallel Coordinates and Parallel Categories Analysis
+In this section, you want to visualize the number of dwelling types per year in each neighbourhood. You want to provide investors a tool to understand the evolution of dwelling types over the years.
 
-I used plotly express to create parallel coordinates and parallel categories visualizations so that investors can interactively filter and explore various factors related to the sales price of the neighborhoods.
+**Hint:** Use `hvplot` to create an interactive visualization of the average number of dwelling types per year with a dropdown selector for the neighbourhood.
 
-Using the DataFrame of Average values per neighborhood (calculated above), created the following visualizations:
+![dwelling_types_per_year](Images/dwelling_types_per_year.png)
 
-1. Create a Parallel Coordinates Plot
- 
- ![parallel-coordinates.png](Images/parallel-coordinates.png)
+#### Top 10 Most Expensive Neighbourhoods
 
+In this section, you want to figure out which neighbourhoods are the most expensive. You will need to calculate the mean house value for each neighbourhood and then sort the values to obtain the top 10 most expensive neighbourhoods on average. Plot the results as a bar chart.
 
-2. Create a Parallel Categories Plot
+![top-10-expensive-neighbourhoods.png](Images/top-10-expensive-neighbourhoods.png)
 
-  ![parallel-categories.png](Images/parallel-categories.png)
+#### Neighbourhood Map
 
+In this final section, you will read in neighbourhood location data and build an interactive map with the average prices per neighbourhood. Use a scatter Mapbox object from Plotly express to create the visualization. You will need your Mapbox API key for this.
 
-#### Neighborhood Map
+Remember that to create maps visualizations using Plotly Express, you will need to create an account at [mapbox](https://www.mapbox.com/) and [create an access token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens).
 
-I read in neighborhood location data and build an interactive map with the average prices per neighborhood. Used a scatter Mapbox object from plotly express to create the visualization.
+  ![neighbourhood-map.png](Images/neighbourhood-map.png)
 
-  ![neighborhood-map.png](Images/neighborhood-map.png)
+#### Cost Analysis (Optional Challenge)
 
+Plotly express offers a broad selection of interactive plots. In this optional challenge section, you will use Plotly express to create a couple of plots that investors can interactively filter and explore various factors related to the house value of Toronto's neighbourhoods.
 
+1. Create a bar chart row facet to plot the average house values for all Toronto neighbourhoods per year.
+
+    **Hint:** You can learn more about facet plots in Plotly Express in [this link](https://plotly.com/python/facet-plots/).
+
+   ![bar_chart_row](Images/bar_chart_row.png)
+
+2. Create a sunburst chart to conduct a cost analysis of the most expensive neighbourhoods in Toronto per year.
+
+    **Hint:** You can learn more about sunburst charts in Plotly Express in [this link](https://plotly.com/python/sunburst-charts/).
+
+    ![sunburst](Images/sunburst.png)
 
 ### Dashboard
 
+Now that you have worked out all of the code and analysis, you will use the Panel library to build an interactive dashboard for all of the visualizations. There are no hard requirements for the layout of this dashboard, so use your imagination and creativity!
 
-Created a new `dashboard.ipynb` for my dashboard code. Each function returns the plot figure in a format that Panel can use to plot the visualization.
+Use the `dashboard.ipynb` starter notebook for your dashboard code. Copy over the code for each visualization and place this into separate functions (1 function per visualization). This will make it easier to build and modify the layout later. Each function should return the plot figure in a format that Panel can use to plot the visualization.
 
+Sample Dashboard:
 
   ![dashboard-demo.gif](Images/dashboard-demo.gif)
 
+---
 
-### Built with
-#### Python 
-#### pandas
-#### matplotlib
-#### hvplot
-#### plotly.express 
+### Submission
 
+* Upload two separate notebooks to Github - One for the analysis and one for the dashboard.
 
+* Write a README file to explain how to run and use your dashboard.
 
+* Submit the Github URL repository to Bootcampspot.
+
+* **Important Note:** You should not submit your Mapbox access token to Github!
+
+---
+
+© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
